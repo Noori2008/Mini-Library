@@ -18,7 +18,7 @@ Book Copies: The physical instances of books, each with a unique ID and status (
 - bookcopies(id(PK, INT, AI, NN), isbn(INT 13, NN), copyid(INT 11, NN), availability(VARCHAR 45, NN))
 
 Borrow Details: A configuration table where the librarian sets the daily_rate.
-- borrowdetails(id(PK, INT, NN, UN, AI), nic(INT 12, NN, UQ), isbn(INT 13, NN, UQ), duedate(DATE, NN), returndate(DATE, NN), fineamount(VARCHAR 45, NN), status(VARCHAR 45, NN))
+- borrowdetails(id(PK, INT, NN, UN, AI), nic(INT 12, NN, UQ), isbn(INT 13, NN, UQ), duedate(DATE, NN), returndate(DATE, NN), fineamount(VARCHAR 45, NN), paymentstatus(VARCHAR 45, NN))
 
 Overdue Fines: Daily rates.
 - fines(id(PK, INT, NN), dailyrate(INT 11, NN))

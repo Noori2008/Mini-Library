@@ -7,7 +7,6 @@
 </head>
 <body>
     <h1>Library System</h1>
-    <h1>Dasula</h1>
     <a href="src/Views/libariandashboard.php"><button>Go to Dashboard</button></a>
 </body>
 </html>

@@ -1,20 +1,52 @@
-:root {
+/* :root {
     --primary: #F8FAF9;
     --accent: #0891b2;
     --bg: #f3f4f6;
-    --lms-border: #e5e7eb;
-    --sidebar-width: 250px;
-    --sidebar-collapsed: 70px;
     --lms-dark-bg: #131A17;
     --lms-sidebar: #1A2421;
-    --lms-card: #26322E;
-    --lms-mint: #86EFAC;
     --lms-text-pearl: #F1F5F9;
+    --button-bg: #34495e;
+} */
+
+:root {
+    /* Main Brand Colors */
+    --lms-main: #34495E;
+    /* Your base Slate Blue */
+    --lms-main-dark: #2C3E50;
+    /* Darker shade for hover/active */
+    --lms-main-light: #4E6A85;
+    /* Lighter shade for secondary elements */
+
+    /* Backgrounds & Surfaces */
+    --lms-bg: #F4F7F9;
+    /* Soft Blue-Gray background (pleasant) */
+    --lms-card: #FFFFFF;
+    /* Pure white for data containers */
+    --lms-sidebar-bg: #F8FAF9;
+    /* Pearl/Sage light sidebar option */
+
+    /* Interaction & Feedback */
+    --lms-accent: #0891B2;
+    /* Cyan for links and specific highlights */
+    --lms-success: #6B8E61;
+    /* Sage Green for "Available" status */
+    --lms-danger: #E74C3C;
+    /* Soft Red for "Overdue" status */
+
+    /* Text & Borders */
+    --lms-text-dark: #2C3E50;
+    /* High-contrast text */
+    --lms-text-muted: #7F8C8D;
+    /* Gray text for labels/ISBNs */
+    --lms-border: #DCE4EC;
+    /* Subtle dividers */
+
+    --sidebar-width: 250px;
+    --sidebar-collapsed: 70px;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    margin: 0;
     background: var(--bg);
 }
 
@@ -48,7 +80,7 @@ body {
 }
 
 #toggle-btn {
-    background: var(--lms-card);
+    background: var(--button);
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
@@ -64,22 +96,17 @@ body {
     left: 0;
     transition: 0.5s;
     overflow: hidden;
-    color: var(--lms-card);
 }
 
 .nav-list li.active .button,
 .nav-list li.active i {
     color: #FFFFFF !important;
-    
+
 }
 
 .button {
-    color: var(--lms-card);
+    color: var(--lms-main-dark);
     transition: color 0.3s ease;
-}
-
-.side {
-    color: var(--lms-card);
 }
 
 .sidebar.collapsed {
@@ -107,17 +134,22 @@ body {
     font-size: 1.1rem;
 }
 
-.nav-list li a:hover,
+.nav-list li a:hover {
+    background: #34495e;
+    color: var(--lms-bg);
+    border-radius: 18px;
+}
+
 .nav-list li.active a {
     background: #34495e;
-    color: white;
+    color: var(--lms-bg);
     border-radius: 18px;
 }
 
 .content {
     margin-left: var(--sidebar-width);
     padding: 20px;
-    transition: 1.0s;
+    transition: 0.5s;
 }
 
 .content.expanded {

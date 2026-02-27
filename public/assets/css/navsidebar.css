@@ -6,15 +6,10 @@
     --sidebar-width: 250px;
     --sidebar-collapsed: 70px;
     --lms-dark-bg: #131A17;
-    /* Ground background */
     --lms-sidebar: #1A2421;
-    /* Deep Forest */
     --lms-card: #26322E;
-    /* Elevated surface */
     --lms-mint: #86EFAC;
-    /* Glowing Sage Accent */
     --lms-text-pearl: #F1F5F9;
-    /* Soft text */
 }
 
 body {
@@ -53,7 +48,7 @@ body {
 }
 
 #toggle-btn {
-    background: none;
+    background: var(--lms-card);
     border: none;
     font-size: 1.2rem;
     cursor: pointer;
@@ -72,13 +67,13 @@ body {
     color: var(--lms-card);
 }
 
-.nav-list li.active .side, 
+.nav-list li.active .button,
 .nav-list li.active i {
     color: #FFFFFF !important;
     
 }
 
-.side {
+.button {
     color: var(--lms-card);
     transition: color 0.3s ease;
 }
@@ -120,7 +115,6 @@ body {
 }
 
 .content {
-    margin-top: 60px;
     margin-left: var(--sidebar-width);
     padding: 20px;
     transition: 1.0s;

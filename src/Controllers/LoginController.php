@@ -1,7 +1,7 @@
 <?php
 
+session_start();
 
-require_once '../../Config/DBConnection.php';
 require_once '../Models/LoginModel.php';
 
 class LoginController
@@ -36,7 +36,15 @@ class LoginController
     }
 }
 if (isset($_POST['admin-login'])) {
-    $admincontroller = new admincontroller();
-    $admincontroller->login();
+    $loginController = new LoginController();
+    $result = $loginController->login();
+
+    if ($result['success']) {
+        header("Location: ../../index.php"); 
+        exit();
+    } else {
+        echo "<h1>Login Error</h1>";
+        echo "<p>" . $result['message'] . "</p>";
+        echo "<a href='../../index.php'>Go Back</a>";
+    }
 }
-?>

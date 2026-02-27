@@ -28,14 +28,24 @@
                             <label class="form-label small fw-bold">Username</label>
                             <input type="text" class="form-control form-control-lg fs-6"
                                 placeholder="Enter your username" oninput="username_validation()"
+<<<<<<< HEAD
+                                onblur="username_validation()" id="username" name="username"
+                                required>
+=======
                                 onblur="username_validation()" id="username" name="username" required>
+>>>>>>> 8e397bebe437120c38b362ded02f3ca22dab9951
                             <span id="usernameerror" class="small text-danger"></span>
                         </div>
                         <div class="mb-4">
                             <label class="form-label small fw-bold">Password</label>
                             <input type="password" class="form-control form-control-lg fs-6"
                                 placeholder="Enter your password" oninput="password_validation()"
+<<<<<<< HEAD
+                                onblur="password_validation()" id="password" name="password"
+                                required>
+=======
                                 onblur="password_validation()" id="password" name="password" required>
+>>>>>>> 8e397bebe437120c38b362ded02f3ca22dab9951
                             <span id="passworderror" class="small text-danger"></span>
                         </div>
                         <div class="row">
@@ -57,10 +67,9 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
-
         </div>
     </div>
     </div>

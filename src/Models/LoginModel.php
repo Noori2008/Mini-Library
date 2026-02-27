@@ -1,6 +1,5 @@
 <?php
 
-
 require_once '../../Config/DBConnection.php';
 
 class loginModel extends DBConnection

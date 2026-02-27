@@ -29,7 +29,20 @@
 
         <aside class="sidebar shadow" id="sidebar">
 
-            <?php if ($_SESSION['roleid'] <= 1): ?>
+            <!-- <?php if ($_SESSION['roleid'] <= 1): ?> -->
+            <ul class="nav-list d-flex flex-column">
+                <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Books</span></a></li>
+                <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
+                <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
+            </ul>
+        <?php endif; ?>
+
+        <!-- <?php if ($_SESSION['roleid'] <= 2): ?>
                 <ul class="nav-list d-flex flex-column">
                     <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
                     <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
@@ -41,47 +54,35 @@
                 </ul>
             <?php endif; ?>
 
-            <?php if ($_SESSION['roleid'] <= 2): ?>
-                <ul class="nav-list d-flex flex-column">
-                    <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
-                    <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
-                    <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
-                </ul>
-            <?php endif; ?>
+           <?php if ($_SESSION['roleid'] <= 3): ?>
+        <ul class="nav-list d-flex flex-column">
+            <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
+            <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
+            <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
+            <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
+            <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
+            <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
+            <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
+        </ul>
+    <?php endif; ?>
 
-            <?php if ($_SESSION['roleid'] <= 3): ?>
-                <ul class="nav-list d-flex flex-column">
-                    <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
-                    <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
-                    <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
-                </ul>
-            <?php endif; ?>
-
-            <?php if ($_SESSION['roleid'] <= 4): ?>
-                <ul class="nav-list d-flex flex-column">
-                    <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
-                    <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
-                    <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
-                </ul>
-            <?php endif; ?>
+    <?php if ($_SESSION['roleid'] <= 4): ?>
+    <ul class="nav-list d-flex flex-column">
+        <li class="rounded-4 active"><a href="src/Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
+        <li class="rounded-4"><a href="#"><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
+        <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
+        <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
+        <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
+        <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
+        <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
+    </ul>
+<?php endif; ?>-->
 
         </aside>
     </div>
     </main>
-    <script src="public/assets/js/navsidebar.js"></script>
-    <script src="public/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../../public/assets/js/navsidebar.js"></script>
+    <script src="../../public/assets/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

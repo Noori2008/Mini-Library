@@ -25,7 +25,7 @@ class LoginController
 
             $user = $this->loginModel->verifyLogin($username, $password);
 
-            if ($user !== false) {
+            if ($user == false) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['password'] = $user['password'];
                 return ['success' => true, 'message' => 'Login successful'];
@@ -36,7 +36,15 @@ class LoginController
     }
 }
 if (isset($_POST['admin-login'])) {
-    $admincontroller = new admincontroller();
-    $admincontroller->login();
+    $LoginController = new LoginController();
+    $result = $LoginController->login();
+    if ($result['success']) {
+        header("Location: ../../index.php");
+        exit();
+    } else {
+        echo "<h1>Login Error</h1>";
+        echo "<p>" . $result['message'] . "</p>";
+        echo "<a href='../../index.php'>Go Back</a>";
+    }
 }
 ?>

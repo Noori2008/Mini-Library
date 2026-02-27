@@ -23,7 +23,7 @@
                     <h3 class="fw-bold mb-3"> Login</h3>
                     <p class="text-muted mb-4">Please enter your credentials to continue.</p>
 
-                    <form name="loginform" action="../../Controllers/LoginController.php" method="POST">
+                    <form name="loginform" action="../Controllers/LoginController.php" method="POST">
                         <div class="mb-3">
                             <label class="form-label small fw-bold">Username</label>
                             <input type="text" class="form-control form-control-lg fs-6"

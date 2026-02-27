@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Admin Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light d-flex align-items-center vh-100">
@@ -28,16 +28,16 @@
                             <label class="form-label small fw-bold">Username</label>
                             <input type="text" class="form-control form-control-lg fs-6"
                                 placeholder="Enter your username" oninput="username_validation()"
-                                onblur="username_validation()" id="username" name="username" 
-                            required>
+                                onblur="username_validation()" id="username" name="username"
+                                required>
                             <span id="usernameerror" class="small text-danger"></span>
                         </div>
                         <div class="mb-4">
                             <label class="form-label small fw-bold">Password</label>
                             <input type="password" class="form-control form-control-lg fs-6"
                                 placeholder="Enter your password" oninput="password_validation()"
-                                onblur="password_validation()" id="password" name="password" 
-                            required>
+                                onblur="password_validation()" id="password" name="password"
+                                required>
                             <span id="passworderror" class="small text-danger"></span>
                         </div>
                         <div class="row">
@@ -57,10 +57,9 @@
                                 </div>
                             </div>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
-
         </div>
     </div>
     </div>

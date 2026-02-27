@@ -16,8 +16,10 @@
     <?php include 'src/Includes/navsidebar.php' ?>
 
     <main class="content" id="main-content">
-        <?php include 'src/Views/libariandashboard.php' ?>
+        
     </main>
+
+    <!-- <?php include 'src/Includes/footer.php' ?> -->
 
     <script src="public/assets/js/navsidebar.js"></script>
     <script src="public/assets/js/bootstrap.bundle.min.js"></script>

@@ -16,39 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `borrowdetails`
+-- Table structure for table `bookcopies`
 --
 
-DROP TABLE IF EXISTS `borrowdetails`;
+DROP TABLE IF EXISTS `bookcopies`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `borrowdetails` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `nic` int(12) NOT NULL,
+CREATE TABLE `bookcopies` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `isbn` int(13) NOT NULL,
-  `duedate` date NOT NULL,
-  `returndate` date NOT NULL,
-  `fineamount` varchar(45) NOT NULL,
-  `paymentstatus` varchar(45) NOT NULL,
+  `copyid` int(11) NOT NULL,
+  `availability` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `nic_UNIQUE` (`nic`),
-  UNIQUE KEY `isbn_UNIQUE` (`isbn`),
-  KEY `nic` (`nic`),
   KEY `isbn` (`isbn`),
-  KEY `idx_nic` (`nic`),
-  KEY `idx_isbn` (`isbn`),
-  CONSTRAINT `fk_fines_book` FOREIGN KEY (`isbn`) REFERENCES `book` (`ISBN`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  CONSTRAINT `fk_fines_user` FOREIGN KEY (`nic`) REFERENCES `user` (`NIC`) ON DELETE NO ACTION ON UPDATE CASCADE
+  CONSTRAINT `isbn` FOREIGN KEY (`isbn`) REFERENCES `book` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `borrowdetails`
+-- Dumping data for table `bookcopies`
 --
 
-LOCK TABLES `borrowdetails` WRITE;
-/*!40000 ALTER TABLE `borrowdetails` DISABLE KEYS */;
-/*!40000 ALTER TABLE `borrowdetails` ENABLE KEYS */;
+LOCK TABLES `bookcopies` WRITE;
+/*!40000 ALTER TABLE `bookcopies` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bookcopies` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -60,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-25 16:19:27
+-- Dump completed on 2026-02-27 12:41:17

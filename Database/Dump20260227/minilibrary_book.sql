@@ -16,26 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `fines`
+-- Table structure for table `book`
 --
 
-DROP TABLE IF EXISTS `fines`;
+DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `fines` (
-  `id` int(11) NOT NULL,
-  `dailyrate` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookname` varchar(45) NOT NULL,
+  `isbn` int(13) NOT NULL,
+  `category` varchar(45) NOT NULL,
+  `author` varchar(45) NOT NULL,
+  `coverimg` mediumblob NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `isbn_UNIQUE` (`isbn`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `fines`
+-- Dumping data for table `book`
 --
 
-LOCK TABLES `fines` WRITE;
-/*!40000 ALTER TABLE `fines` DISABLE KEYS */;
-/*!40000 ALTER TABLE `fines` ENABLE KEYS */;
+LOCK TABLES `book` WRITE;
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -47,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-25 16:19:27
+-- Dump completed on 2026-02-27 12:41:17

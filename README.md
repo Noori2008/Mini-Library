@@ -9,7 +9,7 @@ A lightweight, efficient database-driven application to manage book inventories,
   - User-Book Mapping: Robust foreign key relationships between users (nic), books (isbn), and physical copies.
 
 User Data: Stores member details with nic as a unique identifier.
-- user(id(PK, INT, AI, NN), username(VARCHAR 45, NN), password(VARCHAR 12, NN), name(VARCHAR 45, NN), nic(INT 12, NN), email(VARCHAR 45, NN), status(VARCHAR 45, NN))
+- user(id(PK, INT, AI, NN), username(VARCHAR 45, NN), password(VARCHAR 12, NN), name(VARCHAR 45, NN), nic(INT 12, NN), email(VARCHAR 45, NN), roleid(INT 1, NN))
 
 Book Inventory: Contains bibliographic metadata (Title, Author, ISBN).
 - book(id(PK, INT, AI, NN), bookname(VARCHAR 45, NN), isbn(INT 13, NN), category(VARCHAR 45, NN), author(VARCHAR 45, NN), coverimg(MEDIUMBLOB, NN))
@@ -22,3 +22,6 @@ Borrow Details: A configuration table where the librarian sets the daily_rate.
 
 Overdue Fines: Daily rates.
 - fines(id(PK, INT, NN), dailyrate(INT 11, NN))
+
+Role definition table.
+- role(roleid(PK, INT 1, NN), role(VARCHAR 10, NN))

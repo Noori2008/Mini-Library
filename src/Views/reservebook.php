@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <style>
-        /* Minimal internal CSS for the specific sketch layout */
+        
         .book-card {
             max-width: 900px;
             margin: 50px auto;

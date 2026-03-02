@@ -35,7 +35,7 @@ class LoginController
         }
     }
 }
-if (isset($_POST['admin-login'])) {
+if (isset($_POST['login'])) {
     $LoginController = new LoginController();
     $result = $LoginController->login();
     if ($result['success']) {

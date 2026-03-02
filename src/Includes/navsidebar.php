@@ -54,8 +54,13 @@
             </div>
 
         </div>
-        <!-- <div class="user-profile"> -->
-        <!-- </div> -->
+        <div class="user-profile">
+            <a href="../../src/Views/profile.php">
+                <h2>
+                    <i class="bi bi-person-circle"></i>
+                </h2>
+            </a>
+        </div>
     </nav>
 
     <div class="container-fluid">
@@ -64,15 +69,15 @@
 
             <!-- <?php if ($_SESSION['roleid'] <= 1): ?> -->
             <ul class="nav-list d-flex flex-column">
-                <li class="rounded-4"><a href="../Views/AdminDashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="button">Dashboard</span></a></li>
-                <li class="rounded-4"><a href=""><i class="bi bi-person-vcard-fill"></i><span class="button">Role Promotion</span></a></li>
-                <li class="rounded-4"><a href=""><i class="bi bi-people-fill"></i><span class="button">Staff Management</span></a></li>
-                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Members</span></a></li>
-                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="button">Manage Books</span></a></li>
-                <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="button">Fines & Payments</span></a></li>
-                <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="button">Settings</span></a></li>
-                <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="button">Logout</span></a></li>
-                <li class="rounded-4 bg-danger"><a href="src/Views/home.php"><i class="bi bi-box-arrow-right"></i><span class="button">Home page (T)</span></a></li>
+                <li class="rounded-4"><a href="../Views/AdminDashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="sidebtn">Dashboard</span></a></li>
+                <li class="rounded-4"><a href="../Views/rollpromotion.php"><i class="bi bi-person-vcard-fill"></i><span class="sidebtn">Manage Roles</span></a></li>
+                <li class="rounded-4"><a href=""><i class="bi bi-people-fill"></i><span class="sidebtn">Staff Management</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="sidebtn">Manage Members</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="sidebtn">Manage Books</span></a></li>
+                <li class="rounded-4 align-items-start mb-auto"><a href="#"><i class="bi bi-cash-stack"></i><span class="sidebtn">Fines & Payments</span></a></li>
+                <li class="rounded-4 align-items-end mt-auto"><a href="#"><i class="bi bi-gear-fill"></i><span class="sidebtn">Settings</span></a></li>
+                <li class="rounded-4"><a href="#"><i class="bi bi-box-arrow-right"></i><span class="sidebtn">Logout</span></a></li>
+                <li class="rounded-4 bg-danger"><a href="../../src/Views/home.php"><i class="bi bi-box-arrow-right"></i><span class="sidebtn">Home page (T)</span></a></li>
             </ul>
         <?php endif; ?>
 

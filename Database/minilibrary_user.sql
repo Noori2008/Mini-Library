@@ -29,7 +29,7 @@ CREATE TABLE `user` (
   `name` varchar(45) NOT NULL,
   `nic` int(12) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `roleid` int(1) NOT NULL,
+  `roleid` int(1),
   PRIMARY KEY (`id`),
   UNIQUE KEY `nic_UNIQUE` (`nic`),
   KEY `roleid` (`roleid`),

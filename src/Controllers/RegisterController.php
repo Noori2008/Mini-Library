@@ -1,7 +1,5 @@
 <?php
 
-
-require_once '../../Config/DBConnection.php';
 require_once '../Models/RegisterModel.php';
 
 class RegisterController
@@ -28,8 +26,10 @@ class RegisterController
         $nic      = trim($_POST['nic'] ?? '');
         $email    = trim($_POST['email'] ?? '');
 
-        if ($username === '' || $password === '' || $name === '' ||
-            $nic === '' || $email === '') {
+        if (
+            $username === '' || $password === '' || $name === '' ||
+            $nic === '' || $email === ''
+        ) {
             return ['success' => false, 'message' => 'All fields required'];
         }
 
@@ -47,7 +47,7 @@ if (isset($_POST['register'])) {
 
     if ($result['success']) {
         // Redirect to dashboard on success
-        header("Location: ../../index.php"); 
+        header("Location: ../../index.php");
         exit();
     } else {
         // Display error on failure so the page isn't white
@@ -56,4 +56,3 @@ if (isset($_POST['register'])) {
         echo "<a href='../../index.php'>Go Back</a>";
     }
 }
-?>

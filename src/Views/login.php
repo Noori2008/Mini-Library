@@ -28,42 +28,32 @@
                             <label class="form-label small fw-bold">Username</label>
                             <input type="text" class="form-control form-control-lg fs-6"
                                 placeholder="Enter your username" oninput="username_validation()"
-<<<<<<< HEAD
-                                onblur="username_validation()" id="username" name="username"
-                                required>
-=======
                                 onblur="username_validation()" id="username" name="username" required>
->>>>>>> 8e397bebe437120c38b362ded02f3ca22dab9951
                             <span id="usernameerror" class="small text-danger"></span>
                         </div>
                         <div class="mb-4">
                             <label class="form-label small fw-bold">Password</label>
                             <input type="password" class="form-control form-control-lg fs-6"
                                 placeholder="Enter your password" oninput="password_validation()"
-<<<<<<< HEAD
                                 onblur="password_validation()" id="password" name="password"
                                 required>
-=======
-                                onblur="password_validation()" id="password" name="password" required>
->>>>>>> 8e397bebe437120c38b362ded02f3ca22dab9951
                             <span id="passworderror" class="small text-danger"></span>
                         </div>
                         <div class="row">
                             <div class="col-4">
                                 <div class="d-grid">
-                                    <button type="submit" name="admin-login" class="btn btn-primary btn-lg fs-6 shadow-sm">
-                                        
-                                            Sign In
-                                        </button>
+                                    <button type="submit" name="login" class="btn btn-primary btn-lg fs-6 shadow-sm">
+                                        Sign In
+                                    </button>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="d-grid">
-                                    
-                                        <a href="register.php" class="btn btn-primary btn-lg fs-6 ">
-                                            Sign Up
-                                        </a>
-                                    
+
+                                    <a href="register.php" class="btn btn-primary btn-lg fs-6 ">
+                                        Sign Up
+                                    </a>
+
                                 </div>
                             </div>
                         </div>

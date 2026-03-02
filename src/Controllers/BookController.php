@@ -15,3 +15,13 @@ if (isset($_POST['isbn'])) {
 }
 }
 
+$books =[];
+
+if (isset($_POST['query']) && !empty(trim($_POST['query']))) {
+    $item = $_POST['query'];
+    $books = searchBooks($conn, $item);
+} else {
+    $sql = "SELECT * FROM book ORDER BY DESC";
+    $books = mysqli_query($conn, $sql);
+}
+

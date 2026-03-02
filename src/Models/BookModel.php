@@ -10,3 +10,11 @@ function getBookByID ($conn, $isbn) {
     return mysqli_fetch_assoc($result);
 }
 
+function searchBooks ($conn, $item) {
+
+    $search = mysqli_real_escape_string($conn, $item);
+    $sql = "SELECT * FROM book WHERE bookname LIKE '%$search%' OR author LIKE '%$search%' ORDER BY id DESC";
+
+    return mysqli_query($conn, $sql);
+
+}

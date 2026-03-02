@@ -1,16 +1,16 @@
 :root {
-    --lms-main: #34495E;
-    --lms-main-dark: #2C3E50;
-    --lms-main-light: #4E6A85;
-    --lms-bg: #F4F7F9;
-    --lms-card: #FFFFFF;
-    --lms-sidebar-bg: #F8FAF9;
-    --lms-accent: #0891B2;
-    --lms-success: #6B8E61;
-    --lms-danger: #E74C3C;
-    --lms-text-dark: #2C3E50;
-    --lms-text-muted: #7F8C8D;
-    --lms-border: #DCE4EC;
+    --main: #34495E;
+    --main-dark: #2C3E50;
+    --main-light: #4E6A85;
+    --bg: #F4F7F9;
+    --card: #FFFFFF;
+    --sidebar-bg: #F8FAF9;
+    --accent: #0891B2;
+    --success: #6B8E61;
+    --danger: #E74C3C;
+    --text-dark: #2C3E50;
+    --text-muted: #7F8C8D;
+    --border: #DCE4EC;
 
     --sidebar-width: 250px;
     --sidebar-collapsed: 70px;
@@ -36,7 +36,7 @@ body {
 }
 
 .bi {
-    color: #718096;
+    color: var(--text-dark);
 }
 
 .nav-left {
@@ -72,11 +72,10 @@ body {
 .nav-list li.active .button,
 .nav-list li.active i {
     color: #FFFFFF !important;
-
 }
 
-.button {
-    color: var(--lms-main-dark);
+.sidebtn {
+    color: var(--main-dark);
     transition: color 0.3s ease;
 }
 

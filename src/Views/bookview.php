@@ -1,3 +1,7 @@
+<?php
+    include 'src/Controllers/BookController.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

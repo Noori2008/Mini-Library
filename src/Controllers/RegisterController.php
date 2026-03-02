@@ -1,7 +1,5 @@
 <?php
 
-
-require_once '../../Config/DBConnection.php';
 require_once '../Models/RegisterModel.php';
 
 class RegisterController
@@ -24,20 +22,15 @@ class RegisterController
 
         $username = trim($_POST['username'] ?? '');
         $password = trim($_POST['password'] ?? '');
-        $name     = trim($_POST['name'] ?? '');
-        $nic      = trim($_POST['nic'] ?? '');
-        $email    = trim($_POST['email'] ?? '');
-
-        if ($username === '' || $password === '' || $name === '' ||
-            $nic === '' || $email === '') {
-            return ['success' => false, 'message' => 'All fields required'];
-        }
+        $name     = trim($_POST['fullname'] ?? '');
+        $nic      = trim($_POST['nic']      ?? '');
+        $email    = trim($_POST['email']    ?? '');
 
         if ($this->model->registerUser($username, $password, $name, $nic, $email)) {
             return ['success' => true, 'message' => 'Registration successful'];
         }
 
-        return ['success' => false, 'message' => 'Unable to register'];
+        return ['success' => false, 'message' => 'Username or email already exists'];
     }
 }
 
@@ -46,14 +39,12 @@ if (isset($_POST['register'])) {
     $result = $ctrl->register();
 
     if ($result['success']) {
-        // Redirect to dashboard on success
-        header("Location: ../../index.php"); 
+        header("Location: ../../index.php");
         exit();
     } else {
-        // Display error on failure so the page isn't white
-        echo "<h1>Login Error</h1>";
-        echo "<p>" . $result['message'] . "</p>";
-        echo "<a href='../../index.php'>Go Back</a>";
+        $_SESSION['register_error'] = $result['message'];
+        header("Location: ../Views/register.php");
+        exit();
     }
 }
 ?>

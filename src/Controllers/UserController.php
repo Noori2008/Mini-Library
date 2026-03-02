@@ -1,5 +1,16 @@
 <?php
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// AUTH GUARD: All user management requires a logged-in session
+if (!isset($_SESSION['username'])) {
+    header('Content-Type: application/json');
+    echo json_encode(['success' => false, 'message' => 'Unauthorized']);
+    exit();
+}
+
 require_once '../../Config/DBConnection.php';
 require_once '../Models/UserModel.php';
 
@@ -39,7 +50,7 @@ class UserController
             $username = isset($_POST['username']) ? trim($_POST['username']) : '';
             $password = isset($_POST['password']) ? trim($_POST['password']) : '';
             $name     = isset($_POST['name'])     ? trim($_POST['name'])     : '';
-            $nic      = isset($_POST['nic'])       ? intval($_POST['nic'])    : 0;  // NIC is int in DB
+            $nic      = isset($_POST['nic'])       ? trim($_POST['nic'])      : '';
             $email    = isset($_POST['email'])     ? trim($_POST['email'])    : '';
             $roleId   = isset($_POST['roleId'])    ? intval($_POST['roleId']) : 0;
 
@@ -47,7 +58,10 @@ class UserController
                 return ['success' => false, 'message' => 'All fields are required'];
             }
 
-            $result = $this->userModel->createUser($username, $password, $name, $nic, $email, $roleId);
+            // Hash password before passing to model
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+            $result = $this->userModel->createUser($username, $hashedPassword, $name, $nic, $email, $roleId);
 
             if (!$result) {
                 return ['success' => false, 'message' => 'Failed to create user'];
@@ -60,7 +74,7 @@ class UserController
     public function addRole()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $nic    = isset($_POST['nic'])    ? intval($_POST['nic'])    : 0;  // NIC is int in DB
+            $nic    = isset($_POST['nic'])    ? trim($_POST['nic'])      : '';
             $email  = isset($_POST['email'])  ? trim($_POST['email'])    : '';
             $roleId = isset($_POST['roleId']) ? intval($_POST['roleId']) : 0;
 
@@ -87,18 +101,18 @@ class UserController
     public function updateUser()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $userId   = isset($_POST['userId'])   ? intval($_POST['userId'])        : 0;
-            $name     = isset($_POST['name'])     ? trim($_POST['name'])            : '';
-            $username = isset($_POST['username']) ? trim($_POST['username'])        : '';
-            $email    = isset($_POST['email'])    ? trim($_POST['email'])           : '';
-            $password = isset($_POST['password']) ? trim($_POST['password'])        : '';
-            $roleId   = isset($_POST['roleId'])   ? intval($_POST['roleId'])        : 0;
+            $userId   = isset($_POST['userId'])   ? intval($_POST['userId'])   : 0;
+            $name     = isset($_POST['name'])     ? trim($_POST['name'])       : '';
+            $username = isset($_POST['username']) ? trim($_POST['username'])   : '';
+            $email    = isset($_POST['email'])    ? trim($_POST['email'])      : '';
+            $password = isset($_POST['password']) ? trim($_POST['password'])   : '';
+            $roleId   = isset($_POST['roleId'])   ? intval($_POST['roleId'])   : 0;
 
             if (empty($userId) || empty($name) || empty($username) || empty($email) || empty($roleId)) {
                 return ['success' => false, 'message' => 'All fields are required'];
             }
 
-            $result = $this->userModel->updateUser($userId, $name, $username, $email, $password,$roleId);
+            $result = $this->userModel->updateUser($userId, $name, $username, $email, $password, $roleId);
 
             if ($result === false) {
                 return ['success' => false, 'message' => 'Failed to update user'];

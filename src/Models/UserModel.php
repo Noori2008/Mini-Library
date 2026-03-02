@@ -42,7 +42,7 @@ class UserModel extends DBConnection
                   FROM user u LEFT JOIN role r ON u.roleid = r.roleid WHERE u.nic = ? AND u.email = ?";
 
         if ($stmt = $this->conn->prepare($query)) {
-            $stmt->bind_param("is", $nic, $email); // NIC is int in DB
+            $stmt->bind_param("ss", $nic, $email);
             $stmt->execute();
             $result = $stmt->get_result();
             $row = $result->fetch_assoc();
@@ -69,10 +69,11 @@ class UserModel extends DBConnection
 
     public function createUser($username, $password, $name, $nic, $email, $roleId)
     {
+        // FIX: was "sssisi" — $name is a string, not int. Corrected to "ssssii"
         $query = "INSERT INTO user (username, password, name, nic, email, roleid) VALUES (?, ?, ?, ?, ?, ?)";
 
         if ($stmt = $this->conn->prepare($query)) {
-            $stmt->bind_param("sssisi", $username, $password, $name, $nic, $email, $roleId);
+            $stmt->bind_param("ssssii", $username, $password, $name, $nic, $email, $roleId);
             $result = $stmt->execute();
             $stmt->close();
             return $result;
@@ -96,11 +97,12 @@ class UserModel extends DBConnection
 
     public function updateUser($userId, $name, $username, $email, $password, $roleId)
     {
-        // If password provided, update it too; otherwise leave it unchanged
         if (!empty($password)) {
+            
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
             $query = "UPDATE user SET name = ?, username = ?, email = ?, password = ?, roleid = ? WHERE id = ?";
             if ($stmt = $this->conn->prepare($query)) {
-                $stmt->bind_param("ssssii", $name, $username, $email, $password, $roleId, $userId);
+                $stmt->bind_param("ssssii", $name, $username, $email, $hashedPassword, $roleId, $userId);
                 $result = $stmt->execute();
                 $stmt->close();
                 return $result;

@@ -6,59 +6,54 @@ require_once '../Models/LoginModel.php';
 
 class LoginController
 {
-    private $loginModel;
+    private $loginmodel;
 
     public function __construct()
     {
-        $this->loginModel = new loginModel();
+        $this->loginmodel = new LoginModel();
     }
-
     public function login()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = isset($_POST['username']) ? trim($_POST['username']) : '';
-            $password = isset($_POST['password']) ? trim($_POST['password']) : '';
 
-            if (empty($username) || empty($password)) {
-                return ['success' => false, 'message' => 'Username and password required'];
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+            $username = trim($_POST['username']);
+            $password = trim($_POST['password']);
+
+            if (!empty($username) && !empty($password)) {
+                $user = $this->loginmodel->verifyLogin($username, $password);
+                if ($user) {
+                    $_SESSION['adminid'] = $user['adminid'];
+                    $_SESSION['username'] = $user['username'];
+                    $_SESSION['roleid']   = $user['roleid'];
+
+                    echo '<script>console.log("Login Successful");</script>';
+                    if ($_SESSION['roleid'] = 1):
+                        echo '<script>window.location.href = "../Views/rollpromotion.php";</script>';
+                    endif;
+                    if ($_SESSION['roleid'] = 2):
+                        echo '<script>window.location.href = "../Views/libariandashboard.php";</script>';
+                    endif;
+                    if ($_SESSION['roleid'] = 3):
+                        echo '<script>window.location.href = "../Views/home.php";</script>';
+                    endif;
+                    if ($_SESSION['roleid'] = 4):
+                        echo '<script>window.location.href = "../Views/home.php";</script>';
+                    endif;
+                } else {
+
+                    echo '<script>console.log("Invalid Username or Password");</script>';
+                    echo '<script>window.location.href = "../Views/adminlogin.php";</script>';
+                }
             }
+        } else {
 
-            $user = $this->loginModel->verifyLogin($username, $password);
-
-            if ($user !== false) {
-                $_SESSION['id']       = $user['id'];
-                $_SESSION['username'] = $user['username'];
-                $_SESSION['roleid']   = $user['roleid'];
-                return ['success' => true, 'message' => 'Login successful'];
-            } else {
-                return ['success' => false, 'message' => 'Invalid username or password'];
-            }
+            echo '<script>console.log("Please Enter Username And Password");</script>';
+            echo '<script>window.location.href = "../Views/adminlogin.php";</script>';
         }
-
-        return ['success' => false, 'message' => 'Invalid request method'];
     }
 }
 
 if (isset($_POST['admin-login'])) {
-    $LoginController = new LoginController();
-    $result = $LoginController->login();
-    if ($result['success']) {
-        header("Location: ../../index.php");
-        exit();
-    } else {
-        echo "<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <title>Login Error</title>
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
-</head>
-<body class='bg-light d-flex align-items-center vh-100'>
-    <div class='container text-center'>
-        <div class='alert alert-danger'>" . htmlspecialchars($result['message']) . "</div>
-        <a href='../Views/login.php' class='btn btn-primary'>Go Back</a>
-    </div>
-</body>
-</html>";
-    }
+    $logincontroller = new LoginController();
+    $logincontroller->login();
 }

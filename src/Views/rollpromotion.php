@@ -18,6 +18,7 @@ $roles = $allRoles['data'] ?? [];
     <title>UniLib | Management Console</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../../public/assets/css/saveprofile.css">
 </head>
 
 <body class="bg-light">
@@ -25,7 +26,7 @@ $roles = $allRoles['data'] ?? [];
     <?php include '../../src/Includes/navsidebar.php' ?>
 
     <main class="content" id="main-content">
-        <div class="container-fluid py-5 px-lg-5">
+        <div class="container-fluid">
 
             <div class="row mb-5 align-items-center">
                 <div class="col">
@@ -141,7 +142,7 @@ $roles = $allRoles['data'] ?? [];
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-dark w-100 p-3 fw-bold rounded-3 mb-2">Save Profile Changes</button>
+                            <button type="submit" id="saveprofile" class="btn btn-dark w-100 p-3 fw-bold rounded-3 mb-2">Save Profile Changes</button>
                             <button type="button" class="btn btn-light w-100 p-3 fw-bold rounded-3 text-muted" data-bs-dismiss="modal">Cancel</button>
                         </form>
                     </div>

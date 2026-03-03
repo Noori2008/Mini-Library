@@ -21,11 +21,9 @@
 
         require_once '../../Config/DBConnection.php';
 
-
         $db = new DBConnection();
         $conn = $db->getConnection();
 
-        // $query = "SELECT bookname, author, isbn, category, description FROM book LIMIT 12";
         $query = "SELECT b.bookname, b.author, b.isbn, b.category, b.description, 
           (SELECT COUNT(*) FROM bookcopies bc 
            WHERE bc.isbn = b.isbn AND bc.availability = 'Available') as available_count
@@ -46,25 +44,28 @@
                                     <h6 class="card-subtitle mb-2 text-muted">by <?php echo $book['author']; ?></h6>
                                     <p class="small text-muted">ISBN: <?php echo $book['isbn']; ?></p>
 
-                                    
-                                        <?php if ($book['available_count'] > 0): ?>
-                                    <button class="btn btn-sm btn-success">Borrow</button>
-                                <?php else: ?>
-                                    <span class="badge bg-danger">Issued</span>
-                                <?php endif; ?>
+
+                                    <?php if ($book['available_count'] > 0): ?>
+                                        <button class="btn btn-sm btn-success">Borrow</button>
+                                    <?php else: ?>
+                                        <span class="badge bg-danger">Issued</span>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </a>
                     </div>
                 <?php endwhile; ?>
+
             </div>
         </div>
+
+
     </main>
 
-    <!-- <?php include '../../Includes/footer.php' ?> -->
+    
 
-    <script src="../../public/assets/js/navsidebar.js"></script>
-    <script src="../../public/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../public/assets/js/navsidebar.js"></script>
+    <script src="../public/assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

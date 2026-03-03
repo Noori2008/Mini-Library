@@ -29,8 +29,8 @@ $roles = $allRoles['data'] ?? [];
 
             <div class="row mb-5 align-items-center">
                 <div class="col">
-                    <h4 class="fw-bold mb-1">Staff Access Directory</h4>
-                    <p class="text-muted small mb-0">Control librarian credentials and system access levels.</p>
+                    <h4 class="fw-bold mb-1">Update and Grand permissions</h4>
+                    <p class="text-muted small mb-0">Control system access levels.</p>
                 </div>
                 <div class="col-md-3 mt-3 mt-md-0">
                     <div class="input-group input-group-sm">

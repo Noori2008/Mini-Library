@@ -69,18 +69,6 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label class="form-label small fw-bold text-muted d-block">QUALITY RATING</label>
-                        <div id="starRating" class="fs-4" style="color: #FFC107; cursor: pointer;">
-                            <i class="bi bi-star-fill star" data-value="1"></i>
-                            <i class="bi bi-star-fill star" data-value="2"></i>
-                            <i class="bi bi-star-fill star" data-value="3"></i>
-                            <i class="bi bi-star star text-muted" data-value="4"></i>
-                            <i class="bi bi-star star text-muted" data-value="5"></i>
-                        </div>
-                        <input type="hidden" name="rating" id="ratingInput" value="3">
-                    </div>
-
-                    <div class="col-md-12">
                         <label class="form-label small fw-bold text-muted">UPLOAD COVER PAGE</label>
                         <div class="p-4 text-center"
                             style="border: 2px dashed #E2E8F0; border-radius: 12px; background-color: #F8FAF9;">

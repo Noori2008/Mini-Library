@@ -20,7 +20,7 @@ class registerModel extends DBConnection
 
         $query = "INSERT INTO user (username, password, name, nic, email) VALUES (?, ?, ?, ?, ?)";
         if ($stmt = $this->conn->prepare($query)) {
-            $stmt->bind_param("sssis", $username, $password, $name, $nic, $email);
+            $stmt->bind_param("sssss", $username, $password, $name, $nic, $email);
             $ok = $stmt->execute();
             $stmt->close();
             return $ok;

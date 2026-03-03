@@ -16,27 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `role`
+-- Table structure for table `book`
 --
 
-DROP TABLE IF EXISTS `role`;
+DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `role` (
-  `roleid` int(1) NOT NULL,
-  `role` varchar(10) NOT NULL,
-  PRIMARY KEY (`roleid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bookname` varchar(45) NOT NULL,
+  `isbn` varchar(13) NOT NULL,
+  `category` varchar(45) NOT NULL,
+  `author` varchar(45) NOT NULL,
+  `coverimg` mediumblob NOT NULL,
+  `bookprice` int(11) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  `bookquantity` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `isbn_UNIQUE` (`isbn`),
+  KEY `isbn` (`isbn`)
+) ENGINE=InnoDB AUTO_INCREMENT=1116 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `role`
+-- Dumping data for table `book`
 --
 
-LOCK TABLES `role` WRITE;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` VALUES (1,'Admin');
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+LOCK TABLES `book` WRITE;
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+INSERT INTO `book` VALUES (1111,'Test book','1234567891234','Novel','Amodh','',0,'This is test text for check the home UI of mini library website.',0),(1112,'Test book 1','2345678912345','Novel','Amodh','',0,'This is test text for check the home UI of mini library website.',0),(1113,'Test book 2','3456789123456','Novel','Kushan','',0,'This is test text for check the home UI of mini library website.',0),(1114,'Test book 3','4567891234567','Love','Kushan','',0,'This is test text for check the home UI of mini library website.',0),(1115,'Test book 4','5678912345678','Horror','Dewmini','',0,'This is test text for check the home UI of mini library website.',0);
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-27 12:41:17
+-- Dump completed on 2026-03-03  9:57:05

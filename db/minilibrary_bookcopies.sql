@@ -24,13 +24,13 @@ DROP TABLE IF EXISTS `bookcopies`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookcopies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `isbn` int(13) NOT NULL,
+  `isbn` varchar(13) NOT NULL,
   `copyid` int(11) NOT NULL,
   `availability` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `isbn` (`isbn`),
-  CONSTRAINT `isbn` FOREIGN KEY (`isbn`) REFERENCES `book` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  CONSTRAINT `isbn` FOREIGN KEY (`isbn`) REFERENCES `book` (`isbn`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `bookcopies` (
 
 LOCK TABLES `bookcopies` WRITE;
 /*!40000 ALTER TABLE `bookcopies` DISABLE KEYS */;
+INSERT INTO `bookcopies` VALUES (11,'1234567891234',111111,'reserved'),(12,'1234567891234',111112,'reserved');
 /*!40000 ALTER TABLE `bookcopies` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-27 12:41:17
+-- Dump completed on 2026-03-03  9:57:05

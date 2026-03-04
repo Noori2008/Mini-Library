@@ -70,7 +70,7 @@
 
                 <ul class="nav-list d-flex flex-column">
                     <li class="rounded-4"><a href="../Views/home.php"><i class="bi bi-house-door-fill"></i><span class="sidebtn">Home</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-ui-checks-grid"></i><span class="sidebtn">Dashboard</span></a></li>
+                    <li class="rounded-4"><a href="../Views/libariandashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="sidebtn">Dashboard</span></a></li>
                     <li class="rounded-4"><a href="../Views/rollpromotion.php"><i class="bi bi-person-vcard-fill"></i><span class="sidebtn">Manage Roles</span></a></li>
                     <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="sidebtn">Manage Members</span></a></li>
                     <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="sidebtn">Manage Books</span></a></li>

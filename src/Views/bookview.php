@@ -10,6 +10,7 @@ include 'src/Controllers/BookController.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $book['bookname']; ?></title>
     <link rel="stylesheet" href="../../public/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/assets/css/bookview.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 
@@ -41,18 +42,10 @@ include 'src/Controllers/BookController.php';
                 <div class="card shadow-sm border-0 rounded-4 overflow-hidden">
                     <img src="coverimg/<?php echo $book['coverimg']; ?>">
                     <div class="card-body bg-white">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <div class="text-warning">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <span class="text-muted ms-1 small">Rating</span>
-                            </div>
-                        </div>
+                        
                         <div class="d-flex gap-2">
-                            <button class="btn btn-dark flex-grow-1 rounded-pill py-2">Borrow</button>
-                            <button class="btn btn-outline-danger rounded-circle">
-                                <i class="bi bi-heart-fill"></i>
-                            </button>
+                            <a href="../Views/reservebook.php"><button class="borrowbtn rounded-pill mx-1 py-2">Borrow</button></a>
+                            
                         </div>
                     </div>
                 </div>
@@ -60,10 +53,11 @@ include 'src/Controllers/BookController.php';
 
             <div class="col-md-8 col-lg-9 mt-4 mt-md-0">
                 <h1 class="fw-bold"><?php echo htmlspecialchars($book['bookname']); ?></h1>
-                <p class="text-secondary fs-5"><?php echo htmlspecialchars($book['author']); ?></p>
+                <p class="text-secondary fs-6"><big class="fw-bold text-dark">By :  </big><?php echo htmlspecialchars($book['author']); ?></p>
 
-                <div class="mt-4">
-                    <p><strong><i class="bi bi-grid"></i> Category:</strong> <span class="text-muted"> <?php echo htmlspecialchars($book['category']); ?></span></p>
+                <div class="mt-2">
+                    <p><strong> ISBN  :</strong> <span class="text-muted"> <?php echo htmlspecialchars($book['isbn']); ?></span>
+                    <br><strong> Category  :</strong> <span class="text-muted"> <?php echo htmlspecialchars($book['category']); ?></span></p>
                     <hr class="text-muted opacity-25">
                     <h5 class="fw-bold mt-4">Description</h5>
                     <p class="text-muted lh-lg">
@@ -74,21 +68,20 @@ include 'src/Controllers/BookController.php';
         </div>
 
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="fw-bold">Your Interests...</h4>
+            <h4 class="fw-bold">More books in this category...</h4>
             <a href="#" class="text-decoration-none text-dark fw-semibold">View All <i
                     class="bi bi-chevron-double-right"></i></a>
         </div>
 
         <div class="row row-cols-2 row-cols-md-4 g-4">
-            <?php
-
-            for ($i = 0; $i < 4; $i++):
+            <?php          
+                for ($i = 0; $i < 4; $i++):
             ?>
                 <div class="col">
                     <div class="card h-100 border-0 shadow-sm rounded-4 text-center p-3 bg-white">
                         <img src="https://via.placeholder.com/150x200" class="card-img-top rounded-3" alt="Interest Cover">
                         <div class="card-body px-0 pb-0">
-                            <button class="btn btn-outline-dark w-100 rounded-pill mt-2">Borrow</button>
+                            <button class="borrowbtn rounded-pill mt-2">Borrow</button>
                         </div>
                     </div>
                 </div>

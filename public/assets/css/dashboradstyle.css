@@ -1,3 +1,21 @@
+:root {
+    --main: #34495E;
+    --main-dark: #2C3E50;
+    --main-light: #4E6A85;
+    --bg: #F4F7F9;
+    --card: #FFFFFF;
+    --sidebar-bg: #2C3E50;
+    /* Changed to match dark theme */
+    --accent: #0891B2;
+    --success: #6B8E61;
+    --danger: #E74C3C;
+    --text-light: #ecf0f1;
+    --text-muted: #95a5a6;
+    --border: #DCE4EC;
+
+    --sidebar-width: 250px;
+    --sidebar-collapsed: 70px;
+}
 /* Base state of the card */
 .hover-card {
     transition: all 0.3s ease-in-out;
@@ -30,14 +48,14 @@ body {
 
 /* Button Styling */
 .btn-primary-custom {
-    background-color: #6B8E61;
+    background-color: var(--main-light);
     border: none;
     color: white;
     transition: 0.3s;
 }
 
 .btn-primary-custom:hover {
-    background-color: #5a7a52;
+    background-color: #34495E;
     color: white;
     transform: translateY(-1px);
 }
@@ -57,7 +75,7 @@ body {
 /* Tab Styling */
 .custom-tab {
     border: none !important;
-    color: #4A6741 !important;
+    color: #34495E !important;
     font-weight: 500;
     padding: 8px 16px !important;
     background: transparent !important;
@@ -65,7 +83,7 @@ body {
 }
 
 .custom-tab.active {
-    color: #6B8E61 !important;
+    color: var(--main-dark) !important;
 }
 
 .custom-tab.active::after {
@@ -75,7 +93,7 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #26322E !important;
+    background-color: var(--main-dark) !important;
     border-radius: 3px 3px 0 0;
 }
 /* 1. Entrance Animation Engine */
@@ -106,7 +124,7 @@ body {
     transform: translateY(-5px) !important;
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
-    border-color: #6B8E61 !important;
+    border-color: var(--main-dark) !important;
 }
 
 /* 5. Smooth Tab Transition */

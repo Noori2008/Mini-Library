@@ -1,58 +1,83 @@
 <?php
+require_once '../../Config/DBConnection.php';
 
-require_once __DIR__ . '/../../Config/DBConnection.php';
+class BookModel extends DBConnection {
 
-class BookModel extends DBConnection
-{
-    private $db;
+    // insert new book to the database
+    public function insertBook($bookname, $isbn, $category, $author, $imgData, $bookprice, $description, $bookquantity) {
+        $query = "INSERT INTO book (bookname, isbn, category, author, coverimg, bookprice, description, bookquantity) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
-    // The Constructor: This runs the moment you do "new BookModel()"
-    public function __construct()
-    {
-        // Call the parent (DBConnection) to setup the connection
-        parent::__construct();
-        $this->db = $this->conn; 
-    }
+        if ($stmt = $this->conn->prepare($query)) {
+            $null = null;
+            $stmt->bind_param("ssssbisi", $bookname, $isbn, $category, $author, $null, $bookprice, $description, $bookquantity);
 
-    /**
-     * Inserts data into two tables: 'book' and 'book_inventory'
-     */
-    public function insertBook($bookname, $author, $isbn, $category, $copies, $description, $coverBlob = null)
-    {
-        // Start Transaction (All-or-Nothing)
-        $this->db->begin_transaction();
+            if ($imgData) { $stmt->send_long_data(4, $imgData); }
 
-        try {
-            // 1. Insert into 'book' table
-            $query1 = "INSERT INTO book (bookname, author, isbn, category, description, coverimg) 
-                       VALUES (?, ?, ?, ?, ?, ?)";
-            $stmt1 = $this->db->prepare($query1);
-            $stmt1->bind_param('sssssis', $bookname, $author, $isbn, $category, $description, $coverBlob);
-            $stmt1->execute();
+            $stmt->execute();
+            $stmt->close();
 
-            // 2. Insert into 'book_copies' table
-            $query2 = "INSERT INTO bookcopies (isbn, copyid) VALUES (?, ?)";
-            $stmt2 = $this->db->prepare($query2);
-            $stmt2->bind_param('si', $isbn, $copies);
-            $stmt2->execute();
-
-            // Commit changes
-            $this->db->commit();
-            
-            $stmt1->close();
-            $stmt2->close();
-            return true;
-
-        } catch (Exception $e) {
-            $this->db->rollback();
-            throw new Exception("Failed to save book: " . $e->getMessage());
+            return $this->insertCopies($isbn, $bookquantity);
+        } else {
+            echo "Error preparing statement: " . $this->conn->error;
         }
     }
 
-    public function getAllBooks()
-    {
+    private function insertCopies($isbn, $quantity) {
+        $query = "INSERT INTO bookcopies (isbn, copyid, availability) VALUES (?, ?, 'Available')";
+
+        if ($stmt = $this->conn->prepare($query)) {
+            for ($i = 1; $i <= $quantity; $i++) {
+                $stmt->bind_param("si", $isbn, $i);
+                $stmt->execute();
+            }
+            $stmt->close();
+            return true;
+        }
+        return false;
+    }
+
+    // get all books from database
+    public function fetch() {
+        $data = null;
         $query = "SELECT * FROM book";
-        $result = $this->db->query($query);
-        return $result->fetch_all(MYSQLI_ASSOC);
+
+        if ($sql = $this->conn->query($query)) {
+            while ($rows = mysqli_fetch_assoc($sql)) {
+                $data[] = $rows;
+            }
+        }
+        return $data;
+    }
+
+    // get book details by isbn from database
+    public function fetch_single($isbn) {
+        $data = null;
+        $query = "SELECT * FROM book WHERE isbn = '$isbn'";
+
+        if ($sql = $this->conn->query($query)) {
+            while ($rows = mysqli_fetch_assoc($sql)) {
+                $data = $rows;
+            }
+        }
+        return $data;
+    }
+
+    // update book
+    public function updateBook($id, $bookname, $isbn, $category, $author, $bookprice, $description, $bookquantity) {
+        $query = "UPDATE book SET bookname = ?, isbn = ?, category = ?, author = ?, bookprice = ?, description = ?, bookquantity = ? WHERE id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ssssissi", $bookname, $isbn, $category, $author, $bookprice, $description, $bookquantity, $id);
+        return $stmt->execute();
+    }
+
+    // delete selected book from database
+    public function deleteBook($id) {
+        $query = "DELETE FROM book WHERE id = ?";
+        if ($stmt = $this->conn->prepare($query)) {
+            $stmt->bind_param("i", $id);
+            return $stmt->execute();
+        }
+        return false;
     }
 }

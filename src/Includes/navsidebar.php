@@ -23,10 +23,13 @@
         </div>
 
         <div class="nav-right d-flex align-items-center gap-3 me-3">
-            <div class="dropdown">
-                <button class="btn btn-outline-secondary rounded-4" type="button" id="roleChangeMenu" data-bs-toggle="dropdown" aria-expanded="false" style="border-color: var(--lms-border);">
-                    <i class="bi bi-person-badge"></i> Edit Role
-                </button>
+
+            <?php if ($_SESSION['roleid'] = 1): ?>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary rounded-4" type="button" id="roleChangeMenu" data-bs-toggle="dropdown" aria-expanded="false" style="border-color: var(--lms-border);">
+                        <i class="bi bi-person-badge"></i> Edit Role
+                    </button>
+                <?php endif; ?>
 
                 <div class="dropdown-menu dropdown-menu-end p-4 rounded-4 shadow-lg" aria-labelledby="roleChangeMenu" style="width: 300px; border: none;">
                     <h6 class="mb-3" style="color: var(--lms-main);">Update User Role</h6>
@@ -51,7 +54,7 @@
                         <button type="submit" class="btn btn-sm w-100 rounded-3 text-white" style="background-color: var(--lms-main);">Update Role</button>
                     </form>
                 </div>
-            </div>
+                </div>
         </div>
         <div class="user-profile">
             <a href="../../src/Views/profile.php">
@@ -70,7 +73,7 @@
 
                 <ul class="nav-list d-flex flex-column">
                     <li class="rounded-4"><a href="../Views/home.php"><i class="bi bi-house-door-fill"></i><span class="sidebtn">Home</span></a></li>
-                    <li class="rounded-4"><a href="#"><i class="bi bi-ui-checks-grid"></i><span class="sidebtn">Dashboard</span></a></li>
+                    <li class="rounded-4"><a href="../Views/AdminDashboard.php"><i class="bi bi-ui-checks-grid"></i><span class="sidebtn">Dashboard</span></a></li>
                     <li class="rounded-4"><a href="../Views/rollpromotion.php"><i class="bi bi-person-vcard-fill"></i><span class="sidebtn">Manage Roles</span></a></li>
                     <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="sidebtn">Manage Members</span></a></li>
                     <li class="rounded-4"><a href="#"><i class="bi bi-people-fill"></i><span class="sidebtn">Manage Books</span></a></li>

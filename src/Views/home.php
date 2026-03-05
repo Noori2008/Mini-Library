@@ -15,7 +15,7 @@
 
     <?php include '../Includes/navsidebar.php' ?>
 
-    <main class="content mt-5" id="main-content">
+    <main class="content" id="main-content">
 
         <?php
 
@@ -32,7 +32,7 @@
         $result = $conn->query($query);
         ?>
 
-        <div class="container mt-5">
+        <div class="container">
             <h3></h3>
             <div class="row">
                 <?php while ($book = $result->fetch_assoc()): ?>
